@@ -23,6 +23,25 @@ class Movie():
 
     def __del__(self):
         print('film objesi silindi')
+
+
+list=[1,2,3,4,5,6]
+
+iterator=iter(list)
+
+print(next(iterstor))
+print(next(iterstor))
+print(next(iterstor))
+print(next(iterstor))
+
+while True:
+  try:
+    element=next(iterator)
+    print(element)
+  except StopIteratiom:
+    break
+
+
 a = input("enter your number"):
 
 if a%2==0:
