@@ -1,6 +1,8 @@
 from math import ceil , floor, sqrt
 from modulea  import add_a
 import random as rr
+from datetime import datetime
+from datetime import timedelta
 
 while True:
     try:
@@ -52,5 +54,13 @@ try:
     print(factorial("4"))
 except Exception as ex:
     print(ex)
+
+
+simdi = datetime.now()
+simdi = datetime.today()
+
+result = datetime.ctime(simdi)
+result = datetime.strftime(simdi,'&A')
+
 
 
