@@ -1,4 +1,5 @@
 from datetime import datetime
+import re
 
 print("Bugün çalışıyorum!")
 print(datetime.now())
@@ -40,7 +41,7 @@ while True:
     print(element)
   except StopIteratiom:
     break
-
+result = re.findall("Python",str )
 
 a = input("enter your number"):
 
