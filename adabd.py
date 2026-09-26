@@ -3,6 +3,11 @@ from modulea  import add_a
 import random as rr
 from datetime import datetime
 from datetime import timedelta
+import requests
+import json
+
+
+
 
 while True:
     try:
@@ -62,5 +67,10 @@ simdi = datetime.today()
 result = datetime.ctime(simdi)
 result = datetime.strftime(simdi,'&A')
 
+api_key="<your_api_key>"
+api_url=f"https://v6.exchangerate-api.com/v6/{api_key}/latest/"
 
+bozulan_doviz = input("Bozulan döviz türü: ") 
+alinan_doviz = input("Alkınan döviz türü: ") 
+miktar = int(input(f"Ne kadar {bozulan_doviz} bozdurmak istiyorsunuz: ")) 
 
