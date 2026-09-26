@@ -1,5 +1,8 @@
 from datetime import datetime
 import re
+import requests
+from bs4 import BeautifulSoup
+
 
 print("Bugün çalışıyorum!")
 print(datetime.now())
@@ -47,3 +50,26 @@ a = input("enter your number"):
 
 if a%2==0:
   return abs(a)
+
+html = request.get(url,haders=headers).content
+soup = BeautifulSoup(html , "html.parser")
+
+liste = soup.find_all("li" , {"class":"column"} , limit=10)
+
+count = 1
+
+for li in liste :
+  link=li.a.get("href")
+  p_name=li.a.h3.text
+  images = li.find("img" , {"class":"cardImage"}).get("data-images").split(",")
+  price = li.find("div" , {"class": "priceContainer"}).find_all("span")[-"].ins.text.strip("TL")
+
+  print(f"{count}.ürün ismi {p_name} fiyat . {price}")
+
+  count +=1
+
+
+
+
+
+
