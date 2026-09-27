@@ -1,6 +1,15 @@
 import requests
 import json
 import re
+import time
+import csv
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 result = requests.get("https://jsonplaceholder.typicode.com/todos")
 result = json.loads(result.text)
