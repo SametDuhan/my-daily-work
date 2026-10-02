@@ -68,6 +68,50 @@ for li in liste :
 
   count +=1
 
+from functools import lru_cache
+from math import factorial, sqrt
+
+
+@lru_cache(maxsize=None)
+def karmasik_fonksiyon(n, k):
+    if n < 0 or k < 0:
+        raise ValueError("n ve k negatif olamaz.")
+
+    if k == 0:
+        return 1
+
+    if n == 0:
+        return 0
+
+    # Kombinasyon
+    kombinasyon = factorial(n) // (
+        factorial(k) * factorial(n - k)
+    ) if k <= n else 0
+
+    # Özyinelemeli hesaplama
+    onceki = karmasik_fonksiyon(n - 1, k - 1)
+
+    # Generator ile ara değerler
+    degerler = (
+        sqrt(i ** 2 + n ** 2)
+        for i in range(1, k + 1)
+    )
+
+    toplam = sum(degerler)
+
+    # Lambda fonksiyonu
+    donusum = lambda x: x * x + 2 * x + 1
+
+    sonuc = (
+        kombinasyon
+        + onceki
+        + donusum(toplam)
+    )
+
+    return sonuc
+
+
+print(karmasik_fonksiyon(10, 4))
 
 
 
